@@ -18,8 +18,6 @@ namespace albama
         public void ConfigureServices(IServiceCollection services)
         {
 
-
-
             // MVC用 够用了 
             services.AddControllersWithViews();
             // 过于强大 不必要
@@ -32,6 +30,9 @@ namespace albama
             //services.AddScoped
             //每次请求都回新建一个
             //services.AddTransient
+
+            services.AddSingleton<IDepartmentService, DepartmentService>();
+            services.AddSingleton<IEmployeeService, EmployeeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,7 +63,7 @@ namespace albama
             app.UseEndpoints(endpoints =>
             {
                 // 路由表的形式
-                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute("default", "{controller=Department}/{action=Index}/{id?}");
                 // 非路由表的形式 需要在controller里面[]形式写地址
                 //endpoints.MapControllers();
             });
