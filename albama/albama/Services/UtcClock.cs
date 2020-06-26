@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace albama.Services
 {
-    public class UtcClock
+    public class UtcClock:IClock
     {
     }
 }
