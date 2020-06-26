@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,50 +17,53 @@ namespace albama
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            // MVCÓÃ ¹»ÓÃÁË 
+
+
+
+            // MVCç”¨ å¤Ÿç”¨äº† 
             services.AddControllersWithViews();
-            // ¹ıÓÚÇ¿´ó ²»±ØÒª
+            // è¿‡äºå¼ºå¤§ ä¸å¿…è¦
             //services.AddMvc();
-            // ×ö½Ó¿ÚÊ¹ÓÃ
+            // åšæ¥å£ä½¿ç”¨
             //services.AddControllers();
-            //ÉúÃüÖÜÆÚ ·şÎñ´´½¨µ½½áÊø
+            //ç”Ÿå‘½å‘¨æœŸ æœåŠ¡åˆ›å»ºåˆ°ç»“æŸ
             services.AddSingleton<IClock, ChinaClock>();
-            //Ã¿´ÎĞÂ½¨·şÎñ¶¼»á´´½¨Ò»¸öĞÂµÄÊµÀı
+            //æ¯æ¬¡æ–°å»ºæœåŠ¡éƒ½ä¼šåˆ›å»ºä¸€ä¸ªæ–°çš„å®ä¾‹
             //services.AddScoped
-            //Ã¿´ÎÇëÇó¶¼»ØĞÂ½¨Ò»¸ö
+            //æ¯æ¬¡è¯·æ±‚éƒ½å›æ–°å»ºä¸€ä¸ª
             //services.AddTransient
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //×Ô¶¨Òå »·¾³±äÁ¿ »·¾³±äÁ¿ÔÚ ÊôĞÔµ÷ÊÔ ÖĞĞŞ¸Ä
+            //è‡ªå®šä¹‰ ç¯å¢ƒå˜é‡ ç¯å¢ƒå˜é‡åœ¨ å±æ€§è°ƒè¯• ä¸­ä¿®æ”¹
             if(env.IsEnvironment("ok"))
             {
 
             }
-            // ÊÇ·ñÕıÊ½»·¾³
+            // æ˜¯å¦æ­£å¼ç¯å¢ƒ
             if (env.IsProduction())
             {
 
             }
-            //ÊÇ·ñ¿ª·¢Ä£Ê½
+            //æ˜¯å¦å¼€å‘æ¨¡å¼
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-            // ÊÊÓÃ¾²Ì¬ÎÄ¼ş
+            // é€‚ç”¨é™æ€æ–‡ä»¶
             app.UseStaticFiles();
-            // °ÑhttpÇëÇó×ª»¯ÎªhttpsÇëÇó
+            // æŠŠhttpè¯·æ±‚è½¬åŒ–ä¸ºhttpsè¯·æ±‚
             app.UseHttpsRedirection();
-            //ÈÏÖ¤
+            //è®¤è¯
             app.UseAuthentication();
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
-                // Â·ÓÉ±íµÄĞÎÊ½
+                // è·¯ç”±è¡¨çš„å½¢å¼
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
-                // ·ÇÂ·ÓÉ±íµÄĞÎÊ½ ĞèÒªÔÚcontrollerÀïÃæ[]ĞÎÊ½Ğ´µØÖ·
+                // éè·¯ç”±è¡¨çš„å½¢å¼ éœ€è¦åœ¨controlleré‡Œé¢[]å½¢å¼å†™åœ°å€
                 //endpoints.MapControllers();
             });
         }
