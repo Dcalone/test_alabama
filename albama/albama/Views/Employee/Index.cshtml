@@ -1,14 +1,14 @@
-﻿
-@using albama.Models
-@model IEnumerable<Department>
+﻿@using albama.Models
+@model IEnumerable<Employee>
 
     <div class="row">
         <div class="col-md-10 offset-md-2">
             <table class="table">
                 <tr>
-                    <th>Name</th>
-                    <th>Location</th>
-                    <th>Employee Count</th>
+                    <th>Frist Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Is Fired</th>
                     <th>操作</th>
                 </tr>
                 @Html.DisplayForModel()
@@ -17,10 +17,6 @@
     </div>
     <div class="row">
         <div class="col-md-4 offset-md-2">
-            <a asp-action="Add">Add</a>
+            <a asp-action="Add" asp-route-departmentId="@ViewBag.DepartmentId">Add</a>
         </div>
     </div>
-
-
-
-
